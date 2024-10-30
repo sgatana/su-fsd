@@ -16,6 +16,11 @@ export function findAndConvertNumbers(filename: string) {
   return filename.replace(/\d+/g, (num) => num.padStart(10, '0'));
 }
 
+const compareFiles = (fileA: FileStore, fileB: FileStore) => {
+  const firstFile = findAndConvertNumbers(fileA.filename);
+  const secondFile = findAndConvertNumbers(fileB.filename);
+  return firstFile.localeCompare(secondFile);
+};
 
 export const sortFiles = (files: FileStore[], sortCriteria: string) => {
   if (sortCriteria === 'createdAt') {
@@ -25,15 +30,11 @@ export const sortFiles = (files: FileStore[], sortCriteria: string) => {
     );
   } else if (sortCriteria === 'filenameAsc') {
     return files.sort((a, b) => {
-      const nameA = findAndConvertNumbers(a.filename);
-      const nameB = findAndConvertNumbers(b.filename);
-      return nameA.localeCompare(nameB);
+      return compareFiles(a, b);
     });
   } else if (sortCriteria === 'filenameDesc') {
     return files.sort((a, b) => {
-      const nameA = findAndConvertNumbers(a.filename);
-      const nameB = findAndConvertNumbers(b.filename);
-      return nameB.localeCompare(nameA);
+      return compareFiles(b, a);
     });
   }
   return files;

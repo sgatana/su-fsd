@@ -18,7 +18,7 @@ function Sort({
       onChange={(e) => onHandleSort(e.target.value)}
       value={sortCriteria}
       
-      className='px-2 w-full block max-w-96  h-12 rounded border border-gray-200 text-gray-600 active:ring-0 focus:right-0 outline-none'
+      className='block h-12 w-full max-w-96  rounded border border-gray-200 px-2 text-gray-600 outline-none focus:right-0 active:ring-0'
     >
       <option hidden value=''>Select Sort Criteria</option>
       {options.map((option) => (

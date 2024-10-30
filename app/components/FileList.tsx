@@ -16,14 +16,14 @@ export default function FileList({ files }: { files: FileStore[] }) {
 
   return (
     <>
-      <div className='w-full h-40  flex justify-center items-center'>
+      <div className='flex h-40  w-full items-center justify-center'>
         <SortField
           sortCriteria={sortCriteria}
           onHandleSort={setSortCriteria}
           options={fileSortOptions}
         />
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-2 w-full'>
+      <div className='grid w-full grid-cols-1 gap-2 md:grid-cols-3'>
         {sortedData?.map(({ filename, createdAt }) => {
           return (
             <Fragment key={filename}>

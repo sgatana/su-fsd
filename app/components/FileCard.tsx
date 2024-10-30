@@ -3,7 +3,7 @@ import { FileStore } from '../lib/actions';
 function FileCard({ filename, createdAt }: FileStore) {
   return (
     <div
-      className='flex flex-col px-6 py-4 border shadow-sm border-gray-300 col-span-1 rounded'
+      className='col-span-1 flex flex-col rounded border border-gray-300 px-6 py-4 shadow-sm'
       key={filename}
     >
       <p>{filename}</p>

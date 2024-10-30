@@ -23,7 +23,7 @@ export default function FileList({ files }: { files: FileStore[] }) {
           options={fileSortOptions}
         />
       </div>
-      <div className='grid grid-cols-3 gap-2 w-full'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-2 w-full'>
         {sortedData?.map(({ filename, createdAt }) => {
           return (
             <Fragment key={filename}>

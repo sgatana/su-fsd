@@ -25,17 +25,15 @@ const compareFiles = (fileA: FileStore, fileB: FileStore) => {
 export const sortFiles = (files: FileStore[], sortCriteria: string) => {
   if (sortCriteria === 'createdAt') {
     return files.sort(
-      (a, b) =>
-        new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      (fileA, fileB) =>
+        new Date(fileA.createdAt).getTime() - new Date(fileB.createdAt).getTime()
     );
-  } else if (sortCriteria === 'filenameAsc') {
-    return files.sort((a, b) => {
-      return compareFiles(a, b);
+  } else if (['filenameAsc', 'filenameDesc'].includes(sortCriteria)) {
+    return files.sort((fileA, fileB) => {
+      const isOrderAsc = sortCriteria === 'filenameAsc';
+      return isOrderAsc ? compareFiles(fileA, fileB) : compareFiles(fileB, fileA);
     });
-  } else if (sortCriteria === 'filenameDesc') {
-    return files.sort((a, b) => {
-      return compareFiles(b, a);
-    });
+  } else {
+    return files;
   }
-  return files;
 };

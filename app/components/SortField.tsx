@@ -2,7 +2,7 @@ import { SortOption } from '@/constants';
 import type { Dispatch, SetStateAction } from 'react';
 
 /**
- * Make the select input reusable by passing value and options as props
+ * Make the select input reusable by passing values, events and options as props
  */
 function Sort({
   sortCriteria,
